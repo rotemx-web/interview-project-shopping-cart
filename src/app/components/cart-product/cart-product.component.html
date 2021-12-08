@@ -1,5 +1,14 @@
-
 <div *ngIf="product">
-  <div>{{product.title}}</div>
-  amount: {{product.quantity}}
+  <div>{{ product.title }}</div>
+
+  <div>
+    amount:
+    <input
+      (change)="calcTotalItems()"
+      type="number"
+      value="{{ product.quantity }}"
+    />
+    <button (click)="dec()" title="smaller">-</button>
+    <button (click)="inc()" title="bigger">+</button>
+  </div>
 </div>

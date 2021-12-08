@@ -18,4 +18,5 @@ export class ProductListComponent implements OnInit {
     this.productAdded.emit(product);
   }
 
+  
 }

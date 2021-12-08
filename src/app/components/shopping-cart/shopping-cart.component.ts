@@ -10,7 +10,11 @@ export class ShoppingCartComponent implements OnInit {
   @Output() productRemove: any = new EventEmitter();
 
   calcTotalItems() {
-    return this.products.reduce((acc, prod) => (acc += prod.quantity), 0);
+    const total = this.products.reduce(
+      (acc, prod) => (acc += Number(prod.quantity)),
+      0
+    );
+    return Number(total);
   }
   calcTotalPrice() {
     const total = this.products.reduce(

@@ -23,7 +23,9 @@ export class AppComponent {
     }
     productExistInCart.quantity += 1;
   }
-
+  sortProductByName() {
+    this.productList.sort((a, b) => a.title.localeCompare(b.title));
+  }
   removeProductFromCart(product) {
     this.cartProductList = this.cartProductList.filter((prod) => {
       return prod.id !== product.id;

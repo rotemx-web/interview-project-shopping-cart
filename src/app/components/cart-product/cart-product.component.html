@@ -4,7 +4,7 @@
   <div>
     amount:
     <input
-      (change)="calcTotalItems()"
+      (change)="updateQuantity($event.target.value)"
       type="number"
       value="{{ product.quantity }}"
     />

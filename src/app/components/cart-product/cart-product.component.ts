@@ -10,10 +10,8 @@ export class CartProductComponent implements OnInit {
   @Output() productRemove: any = new EventEmitter();
   constructor() {}
 
-  calcTotalItems() {
-    return this.product.reduce((acc, prod) => (acc += prod.quantity), 0);
-  }
   ngOnInit(): void {}
+
 
   dec() {
     this.updateQuantity(Number(this.product.quantity - 1));

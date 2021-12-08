@@ -27,6 +27,14 @@ export class AppComponent {
     this.cartProductList = this.cartProductList.filter((prod) => prod.id !== product.id);
   }
 
+  sortAbc() {
+    this.productList.sort((a, b) => a.title.localeCompare(b.title));
+  }
+
+  sortPrice(ascending) {
+    console.log(ascending);
+    this.productList.sort((a, b) => ascending ? b.price - a.price : a.price - b.price);
+  }
 
 }
 

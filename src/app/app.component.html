@@ -1,4 +1,4 @@
-<app-product-list (productAdded)="addProductToCart($event)" [products]="productList">
+<app-product-list (sortProductListByAbc)="sortAbc()" (sortProductListByPrice)="sortPrice($event)" (productAdded)="addProductToCart($event)" [products]="productList">
 
 </app-product-list>
 

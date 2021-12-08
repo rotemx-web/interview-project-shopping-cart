@@ -9,7 +9,9 @@ export class ProductListComponent implements OnInit {
 
   constructor() { }
   @Input() products: any[];
-  @Output() productAdded = new EventEmitter();
+  @Output() productAdded: any = new EventEmitter();
+  @Output() sortProductListByAbc: any = new EventEmitter();
+  @Output() sortProductListByPrice: any = new EventEmitter();
 
   ngOnInit(): void {
   }

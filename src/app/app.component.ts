@@ -24,7 +24,7 @@ export class AppComponent {
   }
 
   removeProductFromCart(product) {
-    this.cartProductList = this.cartProductList.filter((prod) => prod.title !== product.title);
+    this.cartProductList = this.cartProductList.filter((prod) => prod.id !== product.id);
   }
 
 

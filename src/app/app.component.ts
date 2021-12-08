@@ -22,6 +22,12 @@ export class AppComponent {
     }
     productExistInCart.quantity += 1;
   }
+
+  removeProductFromCart(product) {
+    this.cartProductList = this.cartProductList.filter((prod) => prod.title !== product.title);
+  }
+
+
 }
 
 

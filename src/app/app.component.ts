@@ -24,9 +24,35 @@ export class AppComponent {
     productExistInCart.quantity += 1;
   }
   sortProductByName() {
-
     this.productList.sort((a, b) => a.title.localeCompare(b.title));
-    
+  }
+
+  sortProductByPrice() {
+    this.productList.sort((a, b) => a.price - b.price);
+  }
+  searchByTitle(title) {
+    console.log(`title`, title);
+    if (!title.trim().length) {
+      this.productList = productList;
+      return;
+    }
+
+    let timeout = setTimeout(async () => {
+      clearTimeout(timeout);
+      this.productList = productList.filter((product) =>
+        product.title.includes(title)
+      );
+    }, 1000);
+  }
+
+  filterByCategory(category) {
+    if (category === 'All') {
+      this.productList = productList;
+      return;
+    }
+    this.productList = productList.filter((prod) => {
+      return prod.category === category;
+    });
   }
   removeProductFromCart(product) {
     this.cartProductList = this.cartProductList.filter((prod) => {

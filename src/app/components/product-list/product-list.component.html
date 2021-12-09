@@ -1,8 +1,31 @@
 <h1>Products</h1>
 <button (click)="sortProductListByName.emit()">Sort by name</button>
+<button (click)="sortProductListByPrice.emit()">
+  Sort by price (low -high)
+</button>
 
+<input
+  type="text"
+  matInput
+  (change)="searchByTitle.emit($event.target.value)"
+  placeholder="Search"
+/>
+
+<select
+  name="categories"
+  (change)="filterProductListByCategory.emit($event.target.value)"
+>
+  <!-- <option value="men's clothing">men's clothing</option>
+  <option value="jewelery">jewelery</option>
+  <option value="electronics">electronics</option> -->
+  <option>All</option>
+  <option *ngFor="let category of categoryProducts">
+    {{ category }}
+  </option>
+</select>
 <app-product
   *ngFor="let product of products"
   [product]="product"
   (productAdded)="addProductToCart($event)"
-></app-product>
+>
+</app-product>

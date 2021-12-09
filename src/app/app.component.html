@@ -1,7 +1,17 @@
-<app-product-list (productAdded)="addProductToCart($event)" [products]="productList">
-
+<app-product-list
+  (productAdded)="addProductToCart($event)"
+  (sortProductListByName)="sortProductByName()"
+  (sortProductListByPrice)="sortProductByPrice()"
+  (filterProductListByCategory)="filterByCategory($event)"
+  (searchByTitle)="searchByTitle($event)"
+  [products]="productList"
+>
 </app-product-list>
 
-<app-shopping-cart [products]="cartProductList">
-
+<app-shopping-cart
+  (productRemove)="removeProductFromCart($event)"
+  [products]="cartProductList"
+>
 </app-shopping-cart>
+
+<!-- https://zoom.us/j/96409472443?pwd=b2s2azRXeEdtcFh1d2ROS0xxTWoxUT09 -->

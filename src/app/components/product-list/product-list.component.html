@@ -1,8 +1,16 @@
 
 <div class="display-options">
   <div class="filter">
-    <input (keyup)="triggerSearch($event.target.value)" class="search" placeholder="Search for something..." value={{searchQuery}} />
-    <input type="button" class="clear" *ngIf="isSearchDone" (click)="clearSearch()" value="x" />
+    <input
+      (keyup)="triggerSearch($event.target.value)"
+      class="search" placeholder="Search for something..."
+      value={{searchQuery}}
+    />
+    <input
+      type="button" class="clear"
+      *ngIf="isSearchDone"
+      (click)="clearSearch()"
+      value="x" />
     <div *ngIf="isSearching" class="loader"></div>
   </div>
   <div class="sort">
@@ -20,7 +28,12 @@
 
 </div>
 <h1>Products</h1>
-<div *ngIf="!!products && isSearchDone" class="no-results">No results found. Try
+<div *ngIf="!products.length" class="no-results">No results found. Try
   <strong (click)="clearSearch()">expanding your search</strong>.
 </div>
-<app-product *ngFor="let product of products" [product]="product" (productAdded)="addProductToCart($event)"></app-product>
+<app-product
+  *ngFor="let product of products"
+  [product]="product"
+  (productAdded)="addProductToCart($event)">
+
+</app-product>

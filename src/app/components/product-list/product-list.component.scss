@@ -6,7 +6,9 @@
     transform: rotate(360deg);
   }
 }
-
+.no-results {
+  cursor: pointer;
+}
 .display-options {
   display: flex;
   flex-direction: row;

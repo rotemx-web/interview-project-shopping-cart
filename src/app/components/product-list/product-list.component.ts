@@ -12,7 +12,7 @@ export class ProductListComponent implements OnInit {
   @Output() sortProductListByName: any = new EventEmitter();
 
   ngOnInit(): void {}
- 
+
   addProductToCart(product) {
     this.productAdded.emit(product);
   }

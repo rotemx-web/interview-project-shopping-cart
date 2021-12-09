@@ -1,5 +1,32 @@
 :host {
+  .top-logo {
+    width: 5em;
+    height: 5em;
+    background-color: #313338;
+    color: #f8f8f8;
+    vertical-align: middle;
+    border-radius: 50%;
+    margin: 2rem;
+    font-weight: 700;
+    text-align: center;
+    line-height: 5em;
+    user-select: none;
+  }
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  //justify-content: space-around;
+  app-shopping-cart {
+    flex: 1;
+  }
+  app-product-list {
+    flex: 3;
+  }
+  @media only screen and (max-width: 600px) {
+    flex-direction: column-reverse;
+    app-shopping-cart {
+      flex: 1;
+    }
+    app-product-list {
+      flex: 3;
+    }
+  }
 }

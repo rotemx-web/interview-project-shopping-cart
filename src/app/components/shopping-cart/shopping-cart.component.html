@@ -1,6 +1,10 @@
-
-<h1>Shopping Cart ({{calcTotalItems()}})</h1>
-
-<app-cart-product (productRemoved)="productRemoved.emit($event)" *ngFor="let product of products" [product]="product">
-</app-cart-product>
-<h2>Total: ${{calcTotalPrice()}}</h2>
+<div class="shopping-cart">
+  <h1 class="title">Shopping Cart ({{calcTotalItems()}})</h1>
+  <app-cart-product (productRemoved)="productRemoved.emit($event)" *ngFor="let product of products" [product]="product">
+  </app-cart-product>
+  <h2>Total: ${{calcTotalPrice()}}</h2>
+  <div class="payment" *ngIf="calcTotalItems() > 0">
+    <input type="button"  class="paypal" />
+    <input type="button"  class="cc" value="Credit Card"/>
+  </div>
+</div>

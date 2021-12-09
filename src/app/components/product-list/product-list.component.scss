@@ -1,0 +1,101 @@
+@keyframes rotation{
+  from{
+    transform: rotate(0deg);
+  }
+  to{
+    transform: rotate(360deg);
+  }
+}
+
+.display-options {
+  display: flex;
+  flex-direction: row;
+  padding: 3.4rem 0 3rem 3em;
+
+  .sort {
+    display: flex;
+    align-items: center;
+    padding: 0 1rem 0 0.5rem;
+
+    label {
+      padding: 0 8px;
+      font-size: 1.1rem;
+    }
+
+    input {
+      cursor: pointer;
+      padding: 7px 12px;
+      background-color: #f3a20b;
+      font-weight: 700;
+      color: #f8f8f8;
+      //border-top: #313338 solid 2px;
+      //border-bottom: #313338 solid 2px;
+      &:nth-child(odd) {
+        border-bottom-left-radius: 50px;
+        border-top-left-radius: 50px;
+        //border-left: #313338 solid 2px;
+      }
+
+      &:nth-child(even) {
+        border-left: rgba(255, 255, 255, 0.3) solid 1px;
+        border-bottom-right-radius: 50px;
+        border-top-right-radius: 50px;
+        //border-right: #313338 solid 2px;
+      }
+    }
+  }
+
+  .filter {
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    .search {
+      outline: none;
+      color: #313338;
+      padding: 0.4rem 1.5rem 0.4rem 2.5rem;
+      border: rgba(0, 0, 0, 0.2) solid 2px;
+      font-size: 1.1rem;
+      line-height: 1.8rem;
+      font-weight: 300;
+      background-color: #fff;
+      border-radius: 30px;
+
+      &::placeholder {
+        color: rgba(0, 0, 0, 0.3);
+      }
+    }
+
+    .clear {
+      cursor: pointer;
+      position: absolute;
+      right: 1rem;
+      color: rgba(0, 0, 0, 0.3);
+      font-weight: 900;
+      background-color: transparent;
+      border: none;
+      outline: none;
+
+    }
+
+    .loader {
+      position: absolute;
+      left: 0.8rem;
+      animation: rotation 650ms linear infinite;
+      height: 1rem;
+      width: 1rem;
+      border-top: 2px solid rgba(0, 0, 0, .3);
+      border-right: 2px solid transparent;
+      border-radius: 50%;
+    }
+  }
+
+
+  @media only screen and (max-width: 900px) {
+    flex-direction: column;
+    .filter {
+      padding: 0;
+    }
+  }
+}
+

@@ -19,6 +19,7 @@
     flex: 2;
   }
   .remove {
+    cursor: pointer;
     margin-top: 0.4em;
   }
   .input-container {
@@ -33,6 +34,7 @@
       justify-content: center;
       align-items: center;
       button {
+        cursor: pointer;
         padding: 0.5em;
         font-weight: 900;
         text-align: center;

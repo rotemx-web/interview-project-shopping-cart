@@ -1,3 +1,39 @@
-<h1>Products</h1>
 
-<app-product *ngFor="let product of products" [product]="product" (productAdded)="addProductToCart($event)"></app-product>
+<div class="display-options">
+  <div class="filter">
+    <input
+      (keyup)="triggerSearch($event.target.value)"
+      class="search" placeholder="Search for something..."
+      value={{searchQuery}}
+    />
+    <input
+      type="button" class="clear"
+      *ngIf="isSearchDone"
+      (click)="clearSearch()"
+      value="x" />
+    <div *ngIf="isSearching" class="loader"></div>
+  </div>
+  <div class="sort">
+    <label>Sort:</label>
+    <div>
+      <input type="button" (click)="productsSortedAbc.emit(true)" value="A to Z" />
+      <input type="button" (click)="productsSortedAbc.emit(false)" value="Z to A" />
+    </div>
+    <label>Price:</label>
+    <div>
+      <input type="button" (click)="productsSortedPrice.emit(false)" value="Least $" />
+      <input type="button" (click)="productsSortedPrice.emit(true)" value="Most $$$" />
+    </div>
+  </div>
+
+</div>
+<h1>Products</h1>
+<div *ngIf="!products.length" class="no-results">No results found. Try
+  <strong (click)="clearSearch()">expanding your search</strong>.
+</div>
+<app-product
+  *ngFor="let product of products"
+  [product]="product"
+  (productAdded)="addProductToCart($event)">
+
+</app-product>

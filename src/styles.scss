@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+body, html {
+  background-color: #f8f8f8;
+  margin: 0;
+  font-family: Avenir;
+}
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+input, button {
+  font-family: inherit;
+  all: unset;
+}

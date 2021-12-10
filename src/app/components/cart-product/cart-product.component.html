@@ -1,5 +1,20 @@
 
-<div *ngIf="product">
-  <div>{{product.title}}</div>
-  amount: {{product.quantity}}
+<div *ngIf="product" class="product">
+  <div class="image-container">
+    <img src={{product.image}} class="product-image" alt={{product.description}}>
+  </div>
+  <div class="product-title">{{product.title}}</div>
+
+  <div class="product-quantity">
+
+    <div class="input-container">
+      <label for="quantity">Amount:</label>
+      <div class="quantity">
+        <button (click)="dec()" title="-">–</button>
+        <input (change)="updateQuantity($event.target.value)" type="number" id="quantity" value={{product.quantity}}>
+        <button (click)="inc()" title="+">+</button>
+      </div>
+    </div>
+    <button class="remove" (click)="removeProduct()">– Remove from cart</button>
+  </div>
 </div>

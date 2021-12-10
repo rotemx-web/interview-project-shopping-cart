@@ -22,6 +22,29 @@ export class AppComponent {
     }
     productExistInCart.quantity += 1;
   }
+
+  removeProductFromCart(product) {
+    this.cartProductList = this.cartProductList.filter((prod) => prod.id !== product.id);
+  }
+
+  sortAbc(ascending) {
+    const list = this.productList.sort((a, b) => a.title.localeCompare(b.title));
+    if (!ascending) this.productList = list.reverse();
+  }
+
+  sortPrice(ascending) {
+    console.log(ascending);
+    this.productList.sort((a, b) => ascending ? b.price - a.price : a.price - b.price);
+  }
+
+  searchProducts(query) {
+    if (!query.length) {
+      this.productList = productList;
+    } else {
+      const params = new RegExp(query, 'gi');
+      this.productList = productList.filter((prod) => prod.title.match(params));
+    }
+  }
 }
 
 
